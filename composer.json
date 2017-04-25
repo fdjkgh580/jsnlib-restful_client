@@ -3,6 +3,7 @@
     "type": "library",
     "keywords": ["library"],
     "homepage": "https://github.com/fdjkgh580/restful_client",
+    "license": "MIT",
     "require": {
         "php": ">=7.0",
         "guzzlehttp/guzzle": "^6.2",
