@@ -1,0 +1,14 @@
+{
+    "name": "jsnlib/restful_client",
+    "type": "library",
+    "keywords": ["library"],
+    "homepage": "https://github.com/fdjkgh580/restful_client",
+    "require": {
+        "php": ">=7.0"
+        "guzzlehttp/guzzle": "^6.2",
+        "jsnlib/jsnlib": "^2.1"
+    },
+    "autoload": {
+        "classmap": ["Client.php"]
+    }
+}
