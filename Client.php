@@ -21,13 +21,14 @@ class Client
     protected function response($response)
     {
         $status_code = $response->getStatusCode();
-        $body = $response->getBody();
+        $body        = $response->getBody();
         $body_string = (string) $body;
 
         //decode json
         $decode = \json_decode($body_string);
 
-        if (\is_object($decode))
+
+        if (\is_object($decode) or \is_array($decode))
         {
             $Ao = new \Jsnlib\Ao($body_string);
             return $Ao;            
