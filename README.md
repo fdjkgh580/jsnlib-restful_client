@@ -13,10 +13,24 @@ $client = new \Jsnlib\Restful\Client(
 [
     'base_uri' => 'http://dev.api.westamps.com/v1/'
 ]);
+````
 
+````php 
 $result = $client->get('method', 
 [
     'Say' => 'Hello World'
 ]);
+
+````
+
+````php 
+$result = $client->post('method', 
+[
+    [
+        'name'     => 'upl[]',
+        'contents' => fopen('demo/demo.mp4', 'r')
+    ],
+
+], true);
 
 ````
