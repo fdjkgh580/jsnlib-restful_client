@@ -20,17 +20,29 @@ $result = $client->get('method',
 [
     'Say' => 'Hello World'
 ]);
-
+$result = $client->post('method', 
+[
+    'Say' => 'Hello World'
+]);
+$result = $client->put('method', 
+[
+    'Say' => 'Hello World'
+]);
+$result = $client->delete('method', 
+[
+    'Say' => 'Hello World'
+]);
 ````
 
+### POST
+文件上傳，如 video 有多筆
 ````php 
 $result = $client->post('method', 
 [
     [
-        'name'     => 'upl[]',
+        'name'     => 'video[]',
         'contents' => fopen('demo/demo.mp4', 'r')
     ],
-
 ], true);
 
 ````
