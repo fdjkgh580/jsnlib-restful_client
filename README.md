@@ -28,6 +28,10 @@ $result = $client->put('method',
 [
     'Say' => 'Hello World'
 ]);
+$result = $client->patch('method', 
+[
+    'Say' => 'Hello World'
+]);
 $result = $client->delete('method', 
 [
     'Say' => 'Hello World'

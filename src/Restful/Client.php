@@ -94,6 +94,22 @@ class Client
         }
     }
 
+    public function patch($url = null, array $param = null)
+    {
+        try
+        {
+            $response = $this->client->request('PATCH', $url,
+            [
+                'form_params' => $param
+            ]);
+
+            return $this->response($response);
+        }
+        catch(\GuzzleHttp\Exception\ServerException $e)
+        {
+            $this->GuzzleHttp_Exception_ServerException($e);
+        }
+    }
 
     public function put($url = null, array $param = null)
     {
