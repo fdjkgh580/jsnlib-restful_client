@@ -7,6 +7,7 @@ namespace Jsnlib\Restful;
 class Client
 {
     protected $client;
+    protected $headers;
 
     /**
      * 設定  
@@ -16,6 +17,7 @@ class Client
     public function __construct(array $config)
     {
         $this->client = new \GuzzleHttp\Client($config);
+        $this->headers = [];
     }
 
     protected function response($response)
@@ -49,6 +51,11 @@ class Client
         die;
     }
 
+    public function headers($params)
+    {
+        $this->headers = $params;
+    }
+
     public function post($url = null, array $param = null, $ismultipart = false)
     {
         try
@@ -57,14 +64,16 @@ class Client
             {
                 $response = $this->client->request('POST', $url, 
                 [
-                    'form_params' => $param
+                    'form_params' => $param,
+                    'headers' => $this->headers
                 ]);
             }
             else 
             {
                 $response = $this->client->request('POST', $url, 
                 [
-                    'multipart' => $param
+                    'multipart' => $param,
+                    'headers' => $this->headers
                 ]);   
             }
 
@@ -83,7 +92,8 @@ class Client
         {
             $response = $this->client->request('GET', $url, 
             [
-                'query' => $param
+                'query' => $param,
+                'headers' => $this->headers
             ]);
 
             return $this->response($response);
@@ -100,7 +110,8 @@ class Client
         {
             $response = $this->client->request('PATCH', $url,
             [
-                'form_params' => $param
+                'form_params' => $param,
+                'headers' => $this->headers
             ]);
 
             return $this->response($response);
@@ -117,7 +128,8 @@ class Client
         {
             $response = $this->client->request('PUT', $url, 
             [
-                'form_params' => $param
+                'form_params' => $param,
+                'headers' => $this->headers
             ]);
 
             return $this->response($response);
@@ -134,7 +146,8 @@ class Client
         {
             $response = $this->client->request('DELETE', $url, 
             [
-                'form_params' => $param
+                'form_params' => $param,
+                'headers' => $this->headers
             ]);
 
             return $this->response($response);
